@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn Java
+          Learn Kotlin
         </a>
       </header>
     </div>
