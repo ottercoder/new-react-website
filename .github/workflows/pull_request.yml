@@ -1,0 +1,24 @@
+name: PullRequestCI
+on:
+  push:
+    branches:
+      - pull_request
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Packages
+        run: npm install
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v1.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.DEVELOPER_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
