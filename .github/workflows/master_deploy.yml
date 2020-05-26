@@ -18,7 +18,7 @@ jobs:
       - name: Install Packages
         run: npm install
       - name: SonarCloud Scan
-            uses: sonarsource/sonarcloud-github-action@master
+            uses: hakimio/sonarcloud-github-action@pr-fix
             env:
               GITHUB_TOKEN: ${{ secrets.DEVELOPER_TOKEN }}
               SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
